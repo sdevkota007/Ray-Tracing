@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Ray Trace</title>
+  <meta charset="utf-8">
+  <style> div{display:inline-block;}</style>
+  <script src="https://threejs.org/build/three.js"></script>
+  <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://threejs.org/examples/js/loaders/PDBLoader.js"></script>
+  <script src="https://threejs.org/examples/js/loaders/OBJLoader.js"></script>
+  <script type="text/javascript" src="MoleculeSelector.js"></script>
+  <script type="text/javascript" src="Camera.js"></script>
+  <script type="text/javascript" src="RayTracerTemplate.js"></script>
+</head>
+<body style="margin: 0;">
+    
+	<div>
+		<select id="mySelect"></select>
+	</div>
+	<div>
+		<canvas id="myCanvas" width="512" height = "512" ></canvas>
+	</div>
+
+    <script>
+	const rtCanvas = document.getElementById("myCanvas");
+	const rtWidth = rtCanvas.width, rtHeight = rtCanvas.height;
+	const rtCamera = new Camera(75,rtWidth,rtHeight);
+	const rtContext = myCanvas.getContext("2d");
+	const rtImgData = rtContext.createImageData(rtWidth, rtHeight);
+	const rayTracer = new RayTracer(
+		rtCamera,rtContext,rtImgData
+	);
+    const moleculeSelector = new MoleculeSelector(
+		document.getElementById("mySelect"),
+		rayTracer
+	);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\Google\Chrome\Application\Chrome.exe" --enable-webgl2-compute-context --use-angle=gl --use-cmd-decoder=passthrough
